@@ -34,7 +34,7 @@ const ContactForm = ({ onAddContact }) => {
           onChange={(e) => setNumber(e.target.value)}
         />
       </label>
-      <button type="submit">Add contact</button>
+      <button className='number-btn' type="submit">Add contact</button>
     </form>
   );
 };

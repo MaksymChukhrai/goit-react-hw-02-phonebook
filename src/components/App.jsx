@@ -43,15 +43,15 @@ const App = () => {
   );
 
   return (
-    <div>
+    <div className='book_section'>
       <h1>Phonebook</h1>
       <ContactForm onAddContact={handleAddContact} />
-      
+      <div className='contact_form'>
       <h2>Contacts</h2>
       <h3>Find contacts by name</h3>
       <Filter value={filter} onChange={handleFilterChange} />
       <ContactList contacts={filteredContacts} onDelete={handleDeleteContact} />
-
+      </div>
     </div>
   );
 };
