@@ -5,7 +5,7 @@ const ContactForm = ({ onAddContact }) => {
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
 
-  const handleSubmit = (e) => {
+  const handleSubmit = e => {
     e.preventDefault();
     if (name.trim() === '' || number.trim() === '') return;
 
@@ -22,7 +22,7 @@ const ContactForm = ({ onAddContact }) => {
           type="text"
           name="name"
           value={name}
-          onChange={(e) => setName(e.target.value)}
+          onChange={e => setName(e.target.value)}
         />
       </label>
       <label>
@@ -31,10 +31,12 @@ const ContactForm = ({ onAddContact }) => {
           type="tel"
           name="number"
           value={number}
-          onChange={(e) => setNumber(e.target.value)}
+          onChange={e => setNumber(e.target.value)}
         />
       </label>
-      <button className='number-btn' type="submit">Add contact</button>
+      <button className="number-btn" type="submit">
+        Add contact
+      </button>
     </form>
   );
 };

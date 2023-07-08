@@ -14,7 +14,9 @@ const App = () => {
   const [filter, setFilter] = useState('');
 
   const handleAddContact = (name, number) => {
-    const isExist = contacts.some((contact) => contact.name.toLowerCase() === name.toLowerCase());
+    const isExist = contacts.some(
+      contact => contact.name.toLowerCase() === name.toLowerCase()
+    );
     if (isExist) {
       alert(`${name} is already in contacts.`);
       return;
@@ -29,28 +31,31 @@ const App = () => {
     setContacts([...contacts, newContact]);
   };
 
-  const handleDeleteContact = (id) => {
-    const updatedContacts = contacts.filter((contact) => contact.id !== id);
+  const handleDeleteContact = id => {
+    const updatedContacts = contacts.filter(contact => contact.id !== id);
     setContacts(updatedContacts);
   };
 
-  const handleFilterChange = (value) => {
+  const handleFilterChange = value => {
     setFilter(value);
   };
 
-  const filteredContacts = contacts.filter((contact) =>
+  const filteredContacts = contacts.filter(contact =>
     contact.name.toLowerCase().includes(filter.toLowerCase())
   );
 
   return (
-    <div className='book_section'>
+    <div className="book_section">
       <h1>Phonebook</h1>
       <ContactForm onAddContact={handleAddContact} />
-      <div className='contact_form'>
-      <h2>Contacts</h2>
-      <h3>Find contacts by name</h3>
-      <Filter value={filter} onChange={handleFilterChange} />
-      <ContactList contacts={filteredContacts} onDelete={handleDeleteContact} />
+      <div className="contact_form">
+        <h2>Contacts</h2>
+        <h3>Find contacts by name</h3>
+        <Filter value={filter} onChange={handleFilterChange} />
+        <ContactList
+          contacts={filteredContacts}
+          onDelete={handleDeleteContact}
+        />
       </div>
     </div>
   );
