@@ -1,20 +1,24 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const ContactsList = ({ contacts, onDelete }) => {
-  return (
-    <ul className="contact_list">
-      {contacts.map(contact => (
-        <li key={contact.id}>
-          {contact.name}: {contact.number}{' '}
-          <button className="delete-btn" onClick={() => onDelete(contact.id)}>
-            Delete
-          </button>
-        </li>
-      ))}
-    </ul>
-  );
-};
+class ContactsList extends React.Component {
+  render() {
+    const { contacts, onDelete } = this.props;
+
+    return (
+      <ul className="contact_list">
+        {contacts.map(contact => (
+          <li key={contact.id}>
+            {contact.name}: {contact.number}{' '}
+            <button className="delete-btn" onClick={() => onDelete(contact.id)}>
+              Delete
+            </button>
+          </li>
+        ))}
+      </ul>
+    );
+  }
+}
 
 ContactsList.propTypes = {
   contacts: PropTypes.arrayOf(
@@ -26,4 +30,5 @@ ContactsList.propTypes = {
   ).isRequired,
   onDelete: PropTypes.func.isRequired,
 };
+
 export default ContactsList;
